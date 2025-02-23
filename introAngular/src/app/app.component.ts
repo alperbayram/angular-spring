@@ -1,11 +1,15 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { FruitComponent } from './fruit/fruit.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  imports: [FruitComponent],
+  template: `
+  <div>
+    <h1>Fruit app</h1>
+    <app-fruit></app-fruit>
+  </div>
+`
 })
 export class AppComponent {
   title = 'introAngular';
