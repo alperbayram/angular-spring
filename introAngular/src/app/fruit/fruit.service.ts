@@ -1,5 +1,11 @@
 import { Injectable } from '@angular/core';
 
+export interface Item {
+  id: number;
+  name: string;
+  description: string;
+}
+
 @Injectable({
   providedIn: 'root',
 })

@@ -1,0 +1,9 @@
+<div class="container">
+  <h2>Flat List</h2>
+  <div *ngIf="loading">Yükleniyor...</div>
+  <div *ngIf="error">{{ error }}</div>
+
+  <ul *ngIf="!loading && !error">
+    <li *ngFor="let item of flatItems">{{ item.id }} - {{ item.name }}</li>
+  </ul>
+</div>

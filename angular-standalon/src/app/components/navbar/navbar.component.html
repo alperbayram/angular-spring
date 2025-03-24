@@ -1,0 +1,19 @@
+<!-- navbar.component.html -->
+<nav class="navbar" [ngClass]="{ scrolled: scrolled }">
+  <div class="container">
+    <div class="navbar-menu" [ngClass]="{ active: isMenuOpen }">
+      <ul class="navbar-nav">
+        <li *ngFor="let item of menuItems; let i = index">
+          <a
+            [routerLink]="item.link"
+            routerLinkActive="active"
+            [ngClass]="{ 'user-active': item.active }"
+            (click)="setActive(i)"
+          >
+            {{ item.label }}
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

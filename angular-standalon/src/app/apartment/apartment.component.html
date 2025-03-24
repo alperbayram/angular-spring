@@ -1,0 +1,33 @@
+<div class="apartment-container">
+  <h2>Posts from Server 'http://localhost:8080/api/posts'</h2>
+
+  <div *ngIf="loading" class="loading">
+    <p>Loading apartments...</p>
+  </div>
+
+  <div *ngIf="error" class="error-message">
+    <p>{{ error }}</p>
+  </div>
+
+  <div class="filter-section">
+    <input
+      type="text"
+      placeholder="Search apartments..."
+      (input)="searchApartments($event)"
+      class="search-input"
+    />
+  </div>
+
+  <div class="apartments-grid">
+    <div *ngFor="let apartment of filteredApartments" class="apartment-card">
+      <h3>{{ apartment.title }}</h3>
+      <div class="apartment-details">
+        <p>{{ apartment.body }}</p>
+      </div>
+      <div class="apartment-footer">
+        <span class="apartment-id">Building ID: {{ apartment.id }}</span>
+        <span class="owner-id">Owner ID: {{ apartment.userId }}</span>
+      </div>
+    </div>
+  </div>
+</div>

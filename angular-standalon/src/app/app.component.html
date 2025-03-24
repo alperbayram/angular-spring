@@ -1,0 +1,34 @@
+<div class="app-container">
+  <main>
+    <div class="tab-container">
+      <button
+        (click)="activeTab = 'posts'"
+        [class.active]="activeTab === 'posts'"
+      >
+        Posts
+      </button>
+      <button
+        (click)="activeTab = 'apartments'"
+        [class.active]="activeTab === 'apartments'"
+      >
+        Apartments
+      </button>
+      <button
+        (click)="activeTab = 'form'"
+        [class.active]="activeTab === 'form'"
+      >
+        Flat Form
+      </button>
+    </div>
+
+    <div [ngSwitch]="activeTab">
+      <app-my-standalone *ngSwitchCase="'posts'"></app-my-standalone>
+      <app-apartment *ngSwitchCase="'apartments'"></app-apartment>
+      <app-flat-form *ngSwitchCase="'form'"></app-flat-form>
+    </div>
+  </main>
+
+  <footer>
+    <p>Data provided by JSONPlaceholder API</p>
+  </footer>
+</div>
