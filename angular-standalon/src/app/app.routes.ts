@@ -16,6 +16,13 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'flat/load/:id',
+    loadComponent: () =>
+      import('./flat-detail/flat-detail.component').then(
+        (m) => m.FlatDetailComponent
+      ),
+  },
+  {
     path: 'flat-form',
     loadComponent: () =>
       import('./flat-form/flat-form.component').then(

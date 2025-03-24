@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 export interface FlatItem {
-  id: number;
+  id: number | string;
   name: string;
 }
 
@@ -11,11 +11,15 @@ export interface FlatItem {
   providedIn: 'root',
 })
 export class FlatService {
-  private apiUrl = 'http://localhost:8080/flat/getAllFlats';
+  private apiUrl = 'http://localhost:8080';
 
   constructor(private http: HttpClient) {}
 
   getAllFlats(): Observable<FlatItem[]> {
-    return this.http.get<FlatItem[]>(this.apiUrl);
+    return this.http.get<FlatItem[]>(`${this.apiUrl}/flat/getAllFlats`);
+  }
+
+  getFlatById(id: string | number): Observable<FlatItem> {
+    return this.http.get<FlatItem>(`${this.apiUrl}/flat/load/${id}`);
   }
 }

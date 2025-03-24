@@ -1,0 +1,13 @@
+<div class="container">
+  <h2>Flat Detayları</h2>
+  <div *ngIf="loading">Yükleniyor...</div>
+  <div *ngIf="error">{{ error }}</div>
+
+  <div *ngIf="!loading && !error && flat">
+    <h3>{{ flat.name }}</h3>
+    <p>ID: {{ flat.id }}</p>
+    <!-- Diğer flat detayları -->
+  </div>
+
+  <button (click)="goBack()">Geri Dön</button>
+</div>
