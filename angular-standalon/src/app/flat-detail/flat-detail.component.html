@@ -3,11 +3,26 @@
   <div *ngIf="loading">Yükleniyor...</div>
   <div *ngIf="error">{{ error }}</div>
 
-  <div *ngIf="!loading && !error && flat">
-    <h3>{{ flat.name }}</h3>
-    <p>ID: {{ flat.id }}</p>
-    <!-- Diğer flat detayları -->
+  <div *ngIf="!loading && !error && flat" class="flat-details">
+    <p><strong>Name:</strong> {{ flat.name }}</p>
+    <p><strong>ID:</strong> {{ flat.id }}</p>
+
+    <div class="action-buttons">
+      <button class="update-btn">Güncelle</button>
+      <button class="delete-btn">Sil</button>
+      <button (click)="goBack()" class="back-btn">Geri Dön</button>
+    </div>
   </div>
 
-  <button (click)="goBack()">Geri Dön</button>
+  <!-- Silme Onay Modal -->
+  <div *ngIf="showDeleteConfirm" class="delete-modal">
+    <div class="modal-content">
+      <h3>Silme Onayı</h3>
+      <p>{{ flat?.name }} isimli daireyi silmek istediğinizden emin misiniz?</p>
+      <div class="modal-buttons">
+        <button class="confirm-btn">Evet, Sil</button>
+        <button class="cancel-btn">İptal</button>
+      </div>
+    </div>
+  </div>
 </div>

@@ -1,7 +1,6 @@
-// flat-detail.component.ts
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { FlatService, FlatItem } from '../flat-list/flat.service';
 
@@ -10,15 +9,18 @@ import { FlatService, FlatItem } from '../flat-list/flat.service';
   standalone: true,
   imports: [CommonModule, HttpClientModule],
   templateUrl: './flat-detail.component.html',
+  styleUrls: ['./flat-detail.component.css'],
   providers: [FlatService],
 })
 export class FlatDetailComponent implements OnInit {
   flat: FlatItem | null = null;
   loading = true;
   error: string | null = null;
+  showDeleteConfirm = false;
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private flatService: FlatService
   ) {}
 
@@ -46,6 +48,37 @@ export class FlatDetailComponent implements OnInit {
         console.error('API hatası:', err);
       },
     });
+  }
+
+  navigateToUpdate(id: string): void {
+    this.router.navigate(['/flat/update', id]);
+  }
+
+  confirmDelete(id: string): void {
+    this.showDeleteConfirm = true;
+  }
+
+  cancelDelete(): void {
+    this.showDeleteConfirm = false;
+  }
+
+  deleteFlat(id: string | number): void {
+    if (this.flat && this.flat.id) {
+      this.loading = true;
+      this.flatService.deleteFlat(id.toString()).subscribe({
+        next: () => {
+          this.loading = false;
+          this.showDeleteConfirm = false;
+          this.router.navigate(['/flat-list']);
+        },
+        error: (err) => {
+          this.error = 'Flat silinirken bir hata oluştu.';
+          this.loading = false;
+          this.showDeleteConfirm = false;
+          console.error('Silme hatası:', err);
+        },
+      });
+    }
   }
 
   goBack(): void {

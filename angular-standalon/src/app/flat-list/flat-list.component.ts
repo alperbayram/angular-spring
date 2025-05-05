@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { FlatService, FlatItem } from './flat.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-flat-list',
@@ -17,7 +18,7 @@ export class FlatListComponent implements OnInit {
   loading = true;
   error: string | null = null;
 
-  constructor(private flatService: FlatService) {}
+  constructor(private flatService: FlatService, private router: Router) {}
 
   ngOnInit(): void {
     this.loadFlats();
@@ -35,5 +36,9 @@ export class FlatListComponent implements OnInit {
         console.error('API hatası:', err);
       },
     });
+  }
+
+  navigateToDetail(id: string | number): void {
+    this.router.navigate(['/flat/load', id]);
   }
 }

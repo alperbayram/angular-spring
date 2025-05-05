@@ -3,7 +3,16 @@
   <div *ngIf="loading">Yükleniyor...</div>
   <div *ngIf="error">{{ error }}</div>
 
-  <ul *ngIf="!loading && !error">
-    <li *ngFor="let item of flatItems">{{ item.id }} - {{ item.name }}</li>
+  <ul *ngIf="!loading && !error" class="flat-list">
+    <li
+      *ngFor="let item of flatItems"
+      class="flat-item"
+      (click)="navigateToDetail(+item.id)"
+    >
+      <div class="flat-item-content">
+        <span class="flat-id">{{ item.id }}</span> -
+        <span class="flat-name">{{ item.name }}</span>
+      </div>
+    </li>
   </ul>
 </div>
