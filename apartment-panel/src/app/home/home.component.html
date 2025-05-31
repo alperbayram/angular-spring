@@ -19,17 +19,33 @@
     <div class="dashboard-cards">
       <div class="card">
         <h3>Announcements</h3>
-        <p>You have no new announcements</p>
+        <ul>
+          <li *ngFor="let a of announcements">
+            <strong>{{ a.date }}:</strong> {{ a.message }}
+          </li>
+        </ul>
+        <a routerLink="/payments" class="btn btn-primary btn-sm"
+          >View Announcements Details</a
+        >
       </div>
 
       <div class="card">
         <h3>Payments</h3>
-        <p>All payments are up to date</p>
+        <ul>
+          <li *ngFor="let p of payments">{{ p.type }} - ₺{{ p.amount }}</li>
+        </ul>
+        <a routerLink="/payments" class="btn btn-primary btn-sm"
+          >View Payment Details</a
+        >
       </div>
 
       <div class="card">
         <h3>Maintenance</h3>
-        <p>No pending maintenance requests</p>
+        <ul>
+          <li *ngFor="let m of maintenanceRequests">
+            {{ m.detail }} - Reported: {{ m.reported }}
+          </li>
+        </ul>
       </div>
     </div>
   </main>

@@ -24,6 +24,25 @@ export const routes: Routes = [
     canActivate: [() => authGuard()],
   },
   {
+    path: 'payments',
+    loadComponent: () =>
+      import('./payments/payments.component').then((m) => m.PaymentsComponent),
+  },
+  {
+    path: 'dashboard',
+    loadComponent: () =>
+      import('./dashboard/dashboard.component').then(
+        (m) => m.DashboardComponent
+      ),
+  },
+  {
+    path: 'announcements',
+    loadComponent: () =>
+      import('./announcements/announcements.component').then(
+        (m) => m.AnnouncementsComponent
+      ),
+  },
+  {
     path: '**',
     redirectTo: '/home',
   },

@@ -1,0 +1,252 @@
+<div class="home-container">
+  <header class="header">
+    <h1>Apartment Panel</h1>
+    <div class="user-info">
+      <span>Welcome, Alper Bayram</span>
+      <button class="btn btn-outline">Logout</button>
+    </div>
+  </header>
+
+  <!-- <div class="dashboard-header">
+    <div class="stat-card">
+      <h3>Total Collected</h3>
+      <p>₺12,300</p>
+    </div>
+    <div class="stat-card">
+      <h3>Pending Payments</h3>
+      <p>5</p>
+    </div>
+    <div class="stat-card">
+      <h3>Open Maintenance</h3>
+      <p>3</p>
+    </div>
+    <div class="stat-card">
+      <h3>Apartment Count</h3>
+      <p>{{ apartmentCount }}</p>
+    </div>
+  </div> -->
+
+  <!-- <div class="dashboard-content">
+    <div class="chart-box">
+      <h4>Bar Chart</h4>
+      <ngx-charts-bar-vertical
+        [view]="view"
+        [scheme]="barColorScheme"
+        [results]="barChartData"
+        [xAxis]="true"
+        [yAxis]="true"
+        [legend]="false"
+        [showXAxisLabel]="true"
+        [showYAxisLabel]="true"
+        [xAxisLabel]="'Apartment'"
+        [yAxisLabel]="'₺ Amount'"
+        [barPadding]="8"
+      >
+      </ngx-charts-bar-vertical>
+    </div>
+
+    <div class="chart-box">
+      <h4>Payment Distribution</h4>
+      <ngx-charts-pie-chart
+        [view]="[400, 400]"
+        [scheme]="pieColorScheme"
+        [results]="pieChartData"
+        [legend]="true"
+        [explodeSlices]="false"
+        [doughnut]="true"
+      >
+      </ngx-charts-pie-chart>
+    </div>
+  </div> -->
+  <div class="apartment-container">
+    <div class="apartment-card">
+      <!-- <div class="table-container">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Apartment Name</th>
+              <th>Address</th>
+              <th>Owner Name</th>
+              <th>Type</th>
+              <th>Flat No</th>
+              <th>Floor</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Daire 1</td>
+              <td>Güneş Apt. Kat 1 Daire 2</td>
+              <td>Ahmet Yılmaz</td>
+              <td>2+1</td>
+              <td>2</td>
+              <td>1</td>
+              <td><button class="btn btn-edit">Edit</button></td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Daire 2</td>
+              <td>Zeytinpark Sitesi Blok A Daire 5</td>
+              <td>Fatma Demir</td>
+              <td>3+1</td>
+              <td>5</td>
+              <td>2</td>
+              <td><button class="btn btn-edit">Edit</button></td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Daire 3</td>
+              <td>Mavi Evler Kat 3 Daire 9</td>
+              <td>Mehmet Öz</td>
+              <td>1+1</td>
+              <td>9</td>
+              <td>3</td>
+              <td><button class="btn btn-edit">Edit</button></td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Daire 4</td>
+              <td>Akdeniz Konutları Blok B Daire 12</td>
+              <td>Elif Kaya</td>
+              <td>2+1</td>
+              <td>12</td>
+              <td>4</td>
+              <td><button class="btn btn-edit">Edit</button></td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>Daire 5</td>
+              <td>Nilüfer Apt. Kat 2 Daire 3</td>
+              <td>Ali Çelik</td>
+              <td>3+1</td>
+              <td>3</td>
+              <td>2</td>
+              <td><button class="btn btn-edit">Edit</button></td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>Daire 6</td>
+              <td>Vadi Park Blok C Kat 1 Daire 4</td>
+              <td>Burcu Arslan</td>
+              <td>2+1</td>
+              <td>4</td>
+              <td>1</td>
+              <td><button class="btn btn-edit">Edit</button></td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>Daire 7</td>
+              <td>Kumsal Evleri Kat 4 Daire 10</td>
+              <td>Hasan Korkmaz</td>
+              <td>4+1</td>
+              <td>10</td>
+              <td>4</td>
+              <td><button class="btn btn-edit">Edit</button></td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>Daire 8</td>
+              <td>Çamlık Apt. Kat 2 Daire 6</td>
+              <td>Nazlı Aksoy</td>
+              <td>1+1</td>
+              <td>6</td>
+              <td>2</td>
+              <td><button class="btn btn-edit">Edit</button></td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td>Daire 9</td>
+              <td>Bahar Sitesi Blok D Daire 15</td>
+              <td>Emre Şahin</td>
+              <td>2+1</td>
+              <td>15</td>
+              <td>5</td>
+              <td><button class="btn btn-edit">Edit</button></td>
+            </tr>
+            <tr>
+              <td>10</td>
+              <td>Daire 10</td>
+              <td>Yeni Hayat Apt. Kat 1 Daire 1</td>
+              <td>Selin Kurt</td>
+              <td>3+1</td>
+              <td>1</td>
+              <td>1</td>
+              <td><button class="btn btn-edit">Edit</button></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="pagination">
+          <button class="btn-page" [disabled]="1">«</button>
+          <span>Page {{ 1 }}</span>
+          <button class="btn-page">»</button>
+        </div>
+      </div> -->
+
+      <!-- Apartment Form -->
+      <form class="form-section">
+        <h4>Initial Flat Information</h4>
+
+        <!-- Flat Info -->
+        <div class="form-group">
+          <label for="flatNumber">Flat Number</label>
+          <input
+            type="text"
+            formControlName="flatNumber"
+            class="form-control"
+            placeholder="Enter flat number (e.g., 5)"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="floor">Floor</label>
+          <input
+            type="number"
+            formControlName="floor"
+            class="form-control"
+            placeholder="Enter floor (e.g., 2)"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="type">Flat Type</label>
+          <select formControlName="type" class="form-control">
+            <option value="" disabled>Select flat type</option>
+            <option value="1+1">1+1</option>
+            <option value="2+1">2+1</option>
+            <option value="3+1">3+1</option>
+            <option value="4+1">4+1</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="ownerName">Owner Name</label>
+          <input
+            type="text"
+            formControlName="ownerName"
+            class="form-control"
+            placeholder="Enter owner's full name"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="ownerPhone">Owner Phone</label>
+          <input
+            type="tel"
+            formControlName="ownerPhone"
+            class="form-control"
+            placeholder="Enter owner's phone"
+          />
+        </div>
+
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary">
+            Create Apartment
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
